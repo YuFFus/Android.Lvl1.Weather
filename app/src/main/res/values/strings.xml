@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="lbl_location">Location</string>
-    <string name="var_location">Vladivostok</string>
+    <string name="lbl_location">Локация</string>
+    <string name="var_location">Владивосток</string>
+    <string name="lbl_temp">Температура</string>
+    <string name="var_temp">+ 6 Град/С</string>
+    <string name="lbl_total_weather">Погода</string>
+    <string name="var_total_weather">Дождь</string>
+    <string name="lbl_wind">Сила ветра</string>
+    <string name="var_wind">14 м/сек</string>
+
+
 </resources>
