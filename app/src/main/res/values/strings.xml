@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WeatherForecast</string>
     <string name="hint_location">Input place your looking for</string>
-    <string name="city_image">City image on main activity</string>
+    <string name="city_image">City image in lines</string>
     <string name="temp">Temp</string>
     <string name="humidity">Humidity</string>
     <string name="pressure">Pressure</string>

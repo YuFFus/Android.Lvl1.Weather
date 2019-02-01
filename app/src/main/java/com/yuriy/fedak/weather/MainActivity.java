@@ -4,14 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String CITY_NAME_EXTRA = "cityLookingFor";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button buttonFind = findViewById(R.id.button_secondActStart);
+        ClickListener buttonFindClickListener = new ClickListener();
+        buttonFind.setOnClickListener(buttonFindClickListener);
         ViewUtility.makeToast(getApplicationContext(), "onCreate");
     }
     @Override
@@ -40,10 +47,16 @@ public class MainActivity extends AppCompatActivity {
         ViewUtility.makeToast(getApplicationContext(), "onDestroy");
     }
 
-    public void secondActivityStart(View view) {
-        Intent intent = new Intent(MainActivity.this, Activity_1.class);
-        TextInputEditText textInputEditText = findViewById(R.id.EditText_CityLookingFor);
-        intent.putExtra("cityLookingFor", textInputEditText.getText().toString());
-        startActivity(intent);
+    private class ClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View view){
+            Intent intent = new Intent(MainActivity.this, Activity_1.class);
+            TextInputEditText textInputEditText = findViewById(R.id.EditText_CityLookingFor);
+            Editable s = textInputEditText.getText();
+            if (s != null) {
+                intent.putExtra(CITY_NAME_EXTRA, s.toString());
+            }
+            startActivity(intent);
+        }
     }
 }

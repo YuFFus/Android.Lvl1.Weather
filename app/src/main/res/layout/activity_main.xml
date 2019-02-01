@@ -21,7 +21,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/hint_location"
-            android:textSize="18sp"
+            android:textSize="@dimen/dimension_low"
             android:layout_gravity="top|center"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -120,7 +120,6 @@
         android:layout_gravity="center"
         android:textSize="18sp"
         android:visibility="visible"
-        android:text="@string/find"
-        android:onClick="secondActivityStart"/>
+        android:text="@string/find"/>
 
 </LinearLayout>

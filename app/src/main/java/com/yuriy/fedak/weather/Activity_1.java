@@ -6,13 +6,16 @@ import android.widget.TextView;
 
 public class Activity_1 extends AppCompatActivity {
 
+    public static final String CITY_NAME_EXTRA = "cityLookingFor";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String cityAsResult;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
-        cityAsResult = getIntent().getExtras().getString("cityLookingFor");
         TextView textView = findViewById(R.id.TextViewCityAsResult);
-        textView.setText(cityAsResult);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            textView.setText(getIntent().getExtras().getString(CITY_NAME_EXTRA));
+        }
     }
 }
