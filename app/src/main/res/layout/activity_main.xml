@@ -3,14 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
     <ImageView
         android:contentDescription="@string/city_image"
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
+        android:layout_gravity="center"
         android:src="@drawable/ic_city_3"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButtonMenu"
+        android:layout_gravity="top|right"
+        android:src="@drawable/ic_menu_black_24dp"/>
+</FrameLayout>
+
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -21,7 +32,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="@string/hint_location"
-            android:textSize="@dimen/dimension_low"
+            android:textSize="@dimen/medium_size"
             android:layout_gravity="top|center"/>
 
     </android.support.design.widget.TextInputLayout>
@@ -32,7 +43,6 @@
         android:shrinkColumns="*"
         android:stretchColumns="*">
 
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -40,27 +50,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:text="@string/temp"
-                android:textSize="12sp"/>
+                style="@style/TextStandardStyle" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:text="@string/pressure"
-                android:textSize="12sp"/>
+                style="@style/TextStandardStyle"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:text="@string/wind"
-                android:textSize="12sp"/>
+                android:textSize="@dimen/standard_size"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:text="@string/humidity"
-                android:textSize="12sp"/>
+                android:textSize="@dimen/standard_size"/>
 
         </TableRow>
 
@@ -90,24 +96,16 @@
             android:layout_height="match_parent">
             <CheckBox
                 android:id="@+id/checkBox_temp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                style="@style/CheckboxStandardStyle" />
             <CheckBox
                 android:id="@+id/checkBox_pressure"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"  />
+                style="@style/CheckboxStandardStyle"   />
             <CheckBox
                 android:id="@+id/checkBox_wind"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"  />
+                style="@style/CheckboxStandardStyle"   />
             <CheckBox
                 android:id="@+id/checkBox_humidity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"  />
+                style="@style/CheckboxStandardStyle"   />
 
         </TableRow>
 

@@ -4,14 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class Activity_1 extends AppCompatActivity {
+public class ResultActivity extends AppCompatActivity {
 
     public static final String CITY_NAME_EXTRA = "cityLookingFor";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_1);
+        setContentView(R.layout.activity_result);
         TextView textView = findViewById(R.id.TextViewCityAsResult);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {

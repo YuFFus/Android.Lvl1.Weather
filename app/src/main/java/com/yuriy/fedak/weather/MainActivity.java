@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,9 +17,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Button buttonFind = findViewById(R.id.button_secondActStart);
-        ClickListener buttonFindClickListener = new ClickListener();
+        FindClickListener buttonFindClickListener = new FindClickListener();
         buttonFind.setOnClickListener(buttonFindClickListener);
+
+        ImageButton buttonMenu = findViewById(R.id.imageButtonMenu);
+        MenuClickListener buttonMenuClickListener = new MenuClickListener();
+        buttonMenu.setOnClickListener(buttonMenuClickListener);
+
         ViewUtility.makeToast(getApplicationContext(), "onCreate");
     }
     @Override
@@ -47,15 +54,22 @@ public class MainActivity extends AppCompatActivity {
         ViewUtility.makeToast(getApplicationContext(), "onDestroy");
     }
 
-    private class ClickListener implements View.OnClickListener{
+    private class FindClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view){
-            Intent intent = new Intent(MainActivity.this, Activity_1.class);
+            Intent intent = new Intent(MainActivity.this, ResultActivity.class);
             TextInputEditText textInputEditText = findViewById(R.id.EditText_CityLookingFor);
             Editable s = textInputEditText.getText();
             if (s != null) {
                 intent.putExtra(CITY_NAME_EXTRA, s.toString());
             }
+            startActivity(intent);
+        }
+    }
+    private class MenuClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View view){
+            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
             startActivity(intent);
         }
     }
