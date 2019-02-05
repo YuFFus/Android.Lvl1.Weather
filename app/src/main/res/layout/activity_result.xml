@@ -15,7 +15,7 @@
         android:id="@+id/TextViewCityAsResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="@dimen/medium_size"
         android:layout_gravity="center"
         android:text="@string/yourCity"/>
 
@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:shrinkColumns="*"
         android:stretchColumns="*">
-
 
         <TableRow
             android:layout_width="match_parent"
@@ -35,25 +34,25 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="@string/temp"
-                android:textSize="12sp"/>
+                android:textSize="@dimen/standard_size"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="@string/pressure"
-                android:textSize="12sp"/>
+                android:textSize="@dimen/standard_size"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="@string/wind"
-                android:textSize="12sp"/>
+                android:textSize="@dimen/standard_size"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="@string/humidity"
-                android:textSize="12sp"/>
+                android:textSize="@dimen/standard_size"/>
 
         </TableRow>
 
@@ -87,25 +86,25 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/temp_num"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/medium_size"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/pressure_num"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/medium_size"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/wind_num"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/medium_size"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/humidity_num"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/medium_size"/>
         </TableRow>
 
     </TableLayout>

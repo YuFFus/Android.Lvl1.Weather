@@ -116,8 +116,9 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:textSize="18sp"
+        android:textSize="@dimen/medium_size"
         android:visibility="visible"
         android:text="@string/find"/>
+
 
 </LinearLayout>
