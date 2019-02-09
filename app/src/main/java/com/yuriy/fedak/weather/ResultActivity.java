@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
+
 public class ResultActivity extends AppCompatActivity {
 
     public static final String CITY_NAME_EXTRA = "cityLookingFor";
@@ -13,6 +15,7 @@ public class ResultActivity extends AppCompatActivity {
     public static final String APP_PREFERENCES_THEME = "Theme";
     public static final String THEME_STANDARD = "Theme_Standard";
     public static final String THEME_DARK = "Theme_Dark";
+    public static final String PARCEL = "parcel";
     SharedPreferences mSettings;
 
     @Override
@@ -31,12 +34,18 @@ public class ResultActivity extends AppCompatActivity {
             }
         }
         super.onCreate(savedInstanceState);
+        if (getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE) {
+            // Если устройство перевернули в альбомную ориентацию, то надо это активити закрыть
+            finish();
+            return;
+        }
         setContentView(R.layout.activity_result);
         TextView textView = findViewById(R.id.TextViewCityAsResult);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             textView.setText(getIntent().getExtras().getString(CITY_NAME_EXTRA));
         }
+
     }
     @Override
     protected void onSaveInstanceState (Bundle outState){

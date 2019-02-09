@@ -6,7 +6,7 @@
     <string name="humidity">Humidity</string>
     <string name="pressure">Pressure</string>
     <string name="wind">Wind</string>
-    <string name="yourCity">Lastochka</string>
+    <string name="yourCity">Enter place you looking for</string>
     <string name="humidity_num">100%</string>
     <string name="temp_num">15 C</string>
     <string name="wind_num">6 m/s C</string>

@@ -60,21 +60,28 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onStop(){
         super.onStop();
-        Editor editor = mSettings.edit();
-        editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_THEME_VALUE);
-        editor.commit();
+
 /*        ViewUtility.makeToast(getApplicationContext(), "onStop");*/
     }
     private class RadioButtonStandardThemeClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view){
             APP_PREFERENCES_THEME_VALUE = THEME_STANDARD;
+            Editor editor = mSettings.edit();
+            editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_THEME_VALUE);
+            editor.commit();
+            recreate();
         }
     }
     private class RadioButtonDarkThemeClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view){
             APP_PREFERENCES_THEME_VALUE = THEME_DARK;
+            Editor editor = mSettings.edit();
+            editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_THEME_VALUE);
+            editor.commit();
+            recreate();
         }
     }
+
 }
