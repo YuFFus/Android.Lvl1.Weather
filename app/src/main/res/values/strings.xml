@@ -1,5 +1,21 @@
 <resources>
-    <string name="app_name">Weather</string>
-    <string name="lbl_location">Location</string>
-    <string name="var_location">Vladivostok</string>
+    <string name="app_name">WeatherForecast</string>
+    <string name="hint_location">Input place your looking for</string>
+    <string name="city_image">City image in lines</string>
+    <string name="temp">Temp</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="wind">Wind</string>
+    <string name="yourCity">Enter place you looking for</string>
+    <string name="humidity_num">100%</string>
+    <string name="temp_num">15 C</string>
+    <string name="wind_num">6 m/s C</string>
+    <string name="pressure_num">698  mmHd C</string>
+    <string name="find">Find</string>
+    <string name="save">Save</string>
+    <string name="standard_theme">Standard Theme</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="select_app_theme">Select app theme</string>
+
+
 </resources>
