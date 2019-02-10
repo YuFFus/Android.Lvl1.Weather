@@ -68,7 +68,6 @@ public class Fragment_search extends Fragment {
                 // Создаем новый фрагмент для вывода строки
                 fragment_result = Fragment_Result.init(parsel);
             }
-
             // Выполняем транзакцию по замене фрагмента
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.frame_for_fragment_result, fragment_result);  // замена фрагмента
@@ -95,7 +94,6 @@ public class Fragment_search extends Fragment {
             Editable s = textInputEditText.getText();
             currentParcel = new Parsel(s.toString());
             showFragmentResult(currentParcel);
-
         }
     }
 }

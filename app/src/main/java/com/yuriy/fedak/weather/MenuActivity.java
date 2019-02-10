@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioButton;
 
+import java.util.Objects;
+
 public class MenuActivity extends AppCompatActivity {
 
     public static final String APP_PREFERENCES = "mySettings";
@@ -22,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         if (mSettings.contains(APP_PREFERENCES_THEME)){
-            switch (mSettings.getString(APP_PREFERENCES_THEME,"")){
+            switch (Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME,""))){
                 case THEME_STANDARD:
                     super.setTheme(R.style.AppTheme);
                     setTheme(R.style.AppTheme);
@@ -44,7 +46,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
         if (mSettings.contains(APP_PREFERENCES_THEME)){
-            switch (mSettings.getString(APP_PREFERENCES_THEME,"")){
+            switch (Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME,""))){
                 case THEME_STANDARD:
                     radioButtonStandardTheme.setChecked(true);
                     /*APP_PREFERENCES_THEME_VALUE = THEME_STANDARD;*/
@@ -63,7 +65,6 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onStop(){
         super.onStop();
-
     }
     private class RadioButtonStandardThemeClickListener implements View.OnClickListener{
         @Override
@@ -71,7 +72,7 @@ public class MenuActivity extends AppCompatActivity {
             APP_PREFERENCES_THEME_VALUE = THEME_STANDARD;
             Editor editor = mSettings.edit();
             editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_THEME_VALUE);
-            editor.commit();
+            editor.apply();
             recreate();
         }
     }
@@ -81,7 +82,7 @@ public class MenuActivity extends AppCompatActivity {
             APP_PREFERENCES_THEME_VALUE = THEME_DARK;
             Editor editor = mSettings.edit();
             editor.putString(APP_PREFERENCES_THEME, APP_PREFERENCES_THEME_VALUE);
-            editor.commit();
+            editor.apply();
             recreate();
         }
     }

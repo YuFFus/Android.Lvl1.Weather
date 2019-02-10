@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
 public class ResultActivity extends AppCompatActivity {
@@ -15,7 +17,6 @@ public class ResultActivity extends AppCompatActivity {
     public static final String APP_PREFERENCES_THEME = "Theme";
     public static final String THEME_STANDARD = "Theme_Standard";
     public static final String THEME_DARK = "Theme_Dark";
-    public static final String PARCEL = "parcel";
     private static String currentTheme;
     SharedPreferences mSettings;
 
@@ -23,7 +24,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         if (mSettings.contains(APP_PREFERENCES_THEME)){
-            switch (mSettings.getString(APP_PREFERENCES_THEME,"")){
+            switch (Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME,""))){
                 case THEME_STANDARD:
                     super.setTheme(R.style.AppTheme);
                     setTheme(R.style.AppTheme);
@@ -52,10 +53,10 @@ public class ResultActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-/*        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        if (Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME, "")) != currentTheme) {
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        if (!(Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME, ""))).equals(currentTheme)) {
             recreate();
-        }*/
+        }
     }
     @Override
     protected void onSaveInstanceState (Bundle outState){

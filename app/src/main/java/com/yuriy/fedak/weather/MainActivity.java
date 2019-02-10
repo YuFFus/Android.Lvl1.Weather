@@ -40,29 +40,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        if (Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME, "")) != currentTheme) {
+        if (!(Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME, ""))).equals(currentTheme)) {
             recreate();
         }
-/*        ViewUtility.makeToast(getApplicationContext(), "onStart");*/
     }
     @Override
     protected void onResume() {
         super.onResume();
-        /*ViewUtility.makeToast(getApplicationContext(), "onResume");*/
     }
     @Override
     protected void onPause(){
         super.onPause();
-        /*ViewUtility.makeToast(getApplicationContext(), "onPause");*/
     }
     @Override
     protected void onStop(){
         super.onStop();
-        /*ViewUtility.makeToast(getApplicationContext(), "onStop");*/
     }
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        /*ViewUtility.makeToast(getApplicationContext(), "onDestroy");*/
     }
 }
