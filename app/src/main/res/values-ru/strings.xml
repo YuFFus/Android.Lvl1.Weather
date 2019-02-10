@@ -7,7 +7,7 @@
     <string name="humidity">Влажность</string>
     <string name="pressure">Давление</string>
     <string name="wind">Сила ветра</string>
-    <string name="yourCity">Ласточка</string>
+    <string name="yourCity">Задайте название места в строке поиска </string>
     <string name="humidity_num">100%</string>
     <string name="temp_num">15 С</string>
     <string name="wind_num">6 м/с</string>
