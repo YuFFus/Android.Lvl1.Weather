@@ -16,6 +16,7 @@ public class ResultActivity extends AppCompatActivity {
     public static final String THEME_STANDARD = "Theme_Standard";
     public static final String THEME_DARK = "Theme_Dark";
     public static final String PARCEL = "parcel";
+    private static String currentTheme;
     SharedPreferences mSettings;
 
     @Override
@@ -26,10 +27,12 @@ public class ResultActivity extends AppCompatActivity {
                 case THEME_STANDARD:
                     super.setTheme(R.style.AppTheme);
                     setTheme(R.style.AppTheme);
+                    currentTheme = THEME_STANDARD;
                     break;
                 case THEME_DARK:
                     super.setTheme(R.style.DarkAppTheme);
                     setTheme(R.style.DarkAppTheme);
+                    currentTheme = THEME_DARK;
                     break;
             }
         }
@@ -45,7 +48,14 @@ public class ResultActivity extends AppCompatActivity {
         if (bundle != null) {
             textView.setText(getIntent().getExtras().getString(CITY_NAME_EXTRA));
         }
-
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+/*        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        if (Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME, "")) != currentTheme) {
+            recreate();
+        }*/
     }
     @Override
     protected void onSaveInstanceState (Bundle outState){

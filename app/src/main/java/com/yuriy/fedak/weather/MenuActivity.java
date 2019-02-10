@@ -35,19 +35,23 @@ public class MenuActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
         RadioButton radioButtonStandardTheme = findViewById(R.id.radioButtonStandardTheme);
         radioButtonStandardTheme.setOnClickListener(new RadioButtonStandardThemeClickListener());
+
         RadioButton radioButtonDarkTheme = findViewById(R.id.radioButtonDarkTheme);
         radioButtonDarkTheme.setOnClickListener(new RadioButtonDarkThemeClickListener());
+
+
         if (mSettings.contains(APP_PREFERENCES_THEME)){
             switch (mSettings.getString(APP_PREFERENCES_THEME,"")){
                 case THEME_STANDARD:
                     radioButtonStandardTheme.setChecked(true);
-                    APP_PREFERENCES_THEME_VALUE = THEME_STANDARD;
+                    /*APP_PREFERENCES_THEME_VALUE = THEME_STANDARD;*/
                     break;
                 case THEME_DARK:
                     radioButtonDarkTheme.setChecked(true);
-                    APP_PREFERENCES_THEME_VALUE = THEME_DARK;
+                    /*APP_PREFERENCES_THEME_VALUE = THEME_DARK;*/
                     break;
             }
         }
@@ -55,13 +59,11 @@ public class MenuActivity extends AppCompatActivity {
             radioButtonStandardTheme.setChecked(true);
             APP_PREFERENCES_THEME_VALUE = THEME_STANDARD;
         }
-/*        ViewUtility.makeToast(getApplicationContext(), "onCreate");*/
     }
     @Override
     protected void onStop(){
         super.onStop();
 
-/*        ViewUtility.makeToast(getApplicationContext(), "onStop");*/
     }
     private class RadioButtonStandardThemeClickListener implements View.OnClickListener{
         @Override

@@ -15,6 +15,11 @@ public class Fragment_Result extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_result, container, false);
+        TextView textView = view.findViewById(R.id.TextViewCityAsResult);
+        Parsel parsel = getParcel();
+        if (textView != null) {
+            textView.setText(parsel.getCityName());
+        }
         return view;
     }
     public static Fragment_Result init(Parsel parsel){
@@ -23,5 +28,9 @@ public class Fragment_Result extends Fragment {
         args.putSerializable(PARCEL, parsel);
         f.setArguments(args);
         return f;
+    }
+    public Parsel getParcel(){
+        Parsel parsel = (Parsel) getArguments().getSerializable(PARCEL);
+        return parsel;
     }
 }

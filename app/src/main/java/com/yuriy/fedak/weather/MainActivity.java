@@ -1,25 +1,19 @@
 package com.yuriy.fedak.weather;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String APP_PREFERENCES = "mySettings";
-    public static final String APP_PREFERENCES_THEME = "Theme";
-    public static final String THEME_STANDARD = "Theme_Standard";
-    public static final String THEME_DARK = "Theme_Dark";
+    private static final String APP_PREFERENCES = "mySettings";
+    private static final String APP_PREFERENCES_THEME = "Theme";
+    private static final String THEME_STANDARD = "Theme_Standard";
+    private static final String THEME_DARK = "Theme_Dark";
+    private static String currentTheme;
     SharedPreferences mSettings;
 
     @Override
@@ -30,20 +24,25 @@ public class MainActivity extends AppCompatActivity {
                     case THEME_STANDARD:
                         super.setTheme(R.style.AppTheme);
                         setTheme(R.style.AppTheme);
+                        currentTheme = THEME_STANDARD;
                         break;
                     case THEME_DARK:
                         super.setTheme(R.style.DarkAppTheme);
                         setTheme(R.style.DarkAppTheme);
+                        currentTheme = THEME_DARK;
                         break;
                 }
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
     @Override
     protected void onStart(){
         super.onStart();
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        if (Objects.requireNonNull(mSettings.getString(APP_PREFERENCES_THEME, "")) != currentTheme) {
+            recreate();
+        }
 /*        ViewUtility.makeToast(getApplicationContext(), "onStart");*/
     }
     @Override
