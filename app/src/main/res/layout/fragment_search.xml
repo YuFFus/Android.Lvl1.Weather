@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <ImageView
+            android:contentDescription="@string/city_image"
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_city_3"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButtonMenu"
+            android:layout_gravity="top|left"
+            android:src="@drawable/ic_menu_black_24dp"/>
+    </FrameLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/EditText_CityLookingFor"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_location"
+            android:textSize="@dimen/medium_size"
+            android:layout_gravity="top|center"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/temp"
+                style="@style/TextStandardStyle" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/pressure"
+                style="@style/TextStandardStyle"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/wind"
+                android:textSize="@dimen/standard_size"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/humidity"
+                android:textSize="@dimen/standard_size"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_temp_48_48"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_air_pressure_48_48" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_wind_force_48_48"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_humidity_48_48"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <CheckBox
+                android:id="@+id/checkBox_temp"
+                style="@style/CheckboxStandardStyle" />
+            <CheckBox
+                android:id="@+id/checkBox_pressure"
+                style="@style/CheckboxStandardStyle"   />
+            <CheckBox
+                android:id="@+id/checkBox_wind"
+                style="@style/CheckboxStandardStyle"   />
+            <CheckBox
+                android:id="@+id/checkBox_humidity"
+                style="@style/CheckboxStandardStyle"   />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button_secondActStart"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:textSize="@dimen/medium_size"
+        android:visibility="visible"
+        android:text="@string/find"/>
+
+</LinearLayout>
