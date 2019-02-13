@@ -9,6 +9,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private static final String APP_PREFERENCES = "mySettings";
     private static final String APP_PREFERENCES_THEME = "Theme";
     private static final String THEME_STANDARD = "Theme_Standard";

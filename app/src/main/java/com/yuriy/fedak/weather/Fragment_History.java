@@ -10,7 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Fragment_History extends Fragment {
+
+    List<History_Data> history_data = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -22,8 +27,7 @@ public class Fragment_History extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        String[] history = getActivity().getResources().getStringArray(R.array.history_array);
+        setInitialData();
 
         RecyclerView recyclerView = view.findViewById(R.id.history_recycler_view);
 
@@ -31,8 +35,22 @@ public class Fragment_History extends Fragment {
 
         recyclerView.setLayoutManager(layoutManager);
 
-        HistoryAdapter historyAdapter = new HistoryAdapter(history);
+        HistoryAdapter historyAdapter = new HistoryAdapter(getContext(), history_data);
 
         recyclerView.setAdapter(historyAdapter);
+    }
+    private void setInitialData(){
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
+        history_data.add(new History_Data ("+10", "698", "12", "98"));
     }
 }

@@ -1,9 +1,12 @@
 package com.yuriy.fedak.weather;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Objects;
@@ -18,6 +21,7 @@ public class ResultActivity extends AppCompatActivity {
     public static final String THEME_STANDARD = "Theme_Standard";
     public static final String THEME_DARK = "Theme_Dark";
     private static String currentTheme;
+    public String cityLookingFor;
     SharedPreferences mSettings;
 
     @Override
@@ -47,8 +51,12 @@ public class ResultActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.TextViewCityAsResult);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            textView.setText(getIntent().getExtras().getString(CITY_NAME_EXTRA));
+            cityLookingFor = getIntent().getExtras().getString(CITY_NAME_EXTRA);
+            textView.setText(cityLookingFor);
         }
+        Button buttonHistory =(Button) findViewById(R.id.button_secondHistoryActStart);
+        HistoryClickListener buttonHistoryClickListener = new HistoryClickListener();
+        buttonHistory.setOnClickListener(buttonHistoryClickListener);
     }
     @Override
     protected void onStart() {
@@ -69,5 +77,13 @@ public class ResultActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.TextViewCityAsResult);
         super.onRestoreInstanceState(savedInstanceState);
         textView.setText(savedInstanceState.getString(CITY_NAME_EXTRA));
+    }
+    private class HistoryClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View view){
+            Intent intent = new Intent(ResultActivity.this, HistoryActivity.class);
+            intent.putExtra(CITY_NAME_EXTRA, cityLookingFor);
+            startActivity(intent);
+        }
     }
 }
