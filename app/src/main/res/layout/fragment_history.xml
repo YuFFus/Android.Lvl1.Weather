@@ -77,45 +77,11 @@
                 android:src="@drawable/ic_humidity_48_48"/>
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/temp_num"
-                android:textSize="@dimen/medium_size"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/pressure_num"
-                android:textSize="@dimen/medium_size"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/wind_num"
-                android:textSize="@dimen/medium_size"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/humidity_num"
-                android:textSize="@dimen/medium_size"/>
-        </TableRow>
-
     </TableLayout>
-    <Button
-        android:id="@+id/button_secondHistoryActStart"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:textSize="@dimen/medium_size"
-        android:visibility="visible"
-        android:text="@string/history"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/history_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
-

@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class Fragment_search extends Fragment {
+public class Fragment_Search extends Fragment {
     private boolean isFrameForFragmentResultExist;
     private Parsel currentParcel;
     public static final String CITY_NAME_EXTRA = "cityLookingFor";
@@ -32,6 +32,10 @@ public class Fragment_search extends Fragment {
         Button buttonFind =(Button) view.findViewById(R.id.button_secondActStart);
         FindClickListener buttonFindClickListener = new FindClickListener();
         buttonFind.setOnClickListener(buttonFindClickListener);
+
+        Button buttonHistory =(Button) view.findViewById(R.id.button_HistoryActStart);
+        HistoryClickListener buttonHistoryClickListener = new HistoryClickListener();
+        buttonHistory.setOnClickListener(buttonHistoryClickListener);
 
         textInputEditText = (TextInputEditText) view.findViewById(R.id.EditText_CityLookingFor);
 
@@ -88,6 +92,15 @@ public class Fragment_search extends Fragment {
             startActivity(intent);
         }
     }
+    private class HistoryClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View view){
+            Intent intent = new Intent(getActivity(), HistoryActivity.class);
+            /*intent.setClass(getActivity(), HistoryActivity_.class);*/
+            /* intent.putExtra(ResultActivity.CITY_NAME_EXTRA, parsel.getCityName());*/
+            startActivity(intent);
+        }
+    }
     private class FindClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view){
@@ -96,4 +109,5 @@ public class Fragment_search extends Fragment {
             showFragmentResult(currentParcel);
         }
     }
+
 }
