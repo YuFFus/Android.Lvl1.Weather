@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class Fragment_Search extends Fragment {
+public class SearchFragment extends Fragment {
     private boolean isFrameForFragmentResultExist;
     private Parsel currentParcel;
     public static final String CITY_NAME_EXTRA = "cityLookingFor";
@@ -26,12 +26,10 @@ public class Fragment_Search extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         ImageButton buttonMenu = (ImageButton) view.findViewById(R.id.imageButtonMenu);
-        MenuClickListener buttonMenuClickListener = new MenuClickListener();
-        buttonMenu.setOnClickListener(buttonMenuClickListener);
+        buttonMenu.setOnClickListener(new MenuClickListener());
 
         Button buttonFind =(Button) view.findViewById(R.id.button_secondActStart);
-        FindClickListener buttonFindClickListener = new FindClickListener();
-        buttonFind.setOnClickListener(buttonFindClickListener);
+        buttonFind.setOnClickListener(new FindClickListener());
 
         textInputEditText = (TextInputEditText) view.findViewById(R.id.EditText_CityLookingFor);
 
@@ -62,11 +60,11 @@ public class Fragment_Search extends Fragment {
 
     private void showFragmentResult (Parsel parsel){
         if(isFrameForFragmentResultExist){
-            Fragment_Result fragment_result = (Fragment_Result)
+            ResultFragment fragment_result = (ResultFragment)
                     getFragmentManager().findFragmentById(R.id.frame_for_fragment_result);
             if (fragment_result == null || fragment_result.getParcel().getCityName() != parsel.getCityName()) {
                 // Создаем новый фрагмент для вывода строки
-                fragment_result = Fragment_Result.init(parsel);
+                fragment_result = ResultFragment.init(parsel);
             }
             // Выполняем транзакцию по замене фрагмента
                 FragmentTransaction ft = getFragmentManager().beginTransaction();

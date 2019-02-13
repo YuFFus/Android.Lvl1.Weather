@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragment_search"
-        android:name="com.yuriy.fedak.weather.Fragment_Search"
+        android:name="com.yuriy.fedak.weather.SearchFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"/>

@@ -55,8 +55,7 @@ public class ResultActivity extends AppCompatActivity {
             textView.setText(cityLookingFor);
         }
         Button buttonHistory =(Button) findViewById(R.id.button_secondHistoryActStart);
-        HistoryClickListener buttonHistoryClickListener = new HistoryClickListener();
-        buttonHistory.setOnClickListener(buttonHistoryClickListener);
+        buttonHistory.setOnClickListener(new HistoryClickListener());
     }
     @Override
     protected void onStart() {

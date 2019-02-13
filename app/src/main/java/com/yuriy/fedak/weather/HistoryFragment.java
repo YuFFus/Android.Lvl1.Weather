@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fragment_History extends Fragment {
+public class HistoryFragment extends Fragment {
 
     List<History_Data> history_data = new ArrayList<>();
 

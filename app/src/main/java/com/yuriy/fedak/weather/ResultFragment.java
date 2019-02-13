@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Fragment_Result extends Fragment {
+public class ResultFragment extends Fragment {
     public static final String PARCEL = "parcel";
     public static final String CITY_NAME_EXTRA = "cityLookingFor";
     public String cityLookingFor;
@@ -26,12 +26,11 @@ public class Fragment_Result extends Fragment {
             textView.setText(cityLookingFor);
         }
         Button buttonHistory = (Button) view.findViewById(R.id.button_secondHistoryActStart);
-        HistoryClickListener buttonHistoryClickListener = new HistoryClickListener();
-        buttonHistory.setOnClickListener(buttonHistoryClickListener);
+        buttonHistory.setOnClickListener(new HistoryClickListener());
         return view;
     }
-    public static Fragment_Result init(Parsel parsel){
-        Fragment_Result f = new Fragment_Result();
+    public static ResultFragment init(Parsel parsel){
+        ResultFragment f = new ResultFragment();
         Bundle args = new Bundle();
         args.putSerializable(PARCEL, parsel);
         f.setArguments(args);
